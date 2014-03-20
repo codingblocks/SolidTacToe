@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidTacToe", "SolidTacToe\SolidTacToe.csproj", "{640F2AB5-C68E-43C3-9230-8BDF606879B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidTacToe.Tests", "SolidTacToe.Tests\SolidTacToe.Tests.csproj", "{2908EA7C-6D4F-40C1-A4FB-896819C377B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolidTacToe.Exe", "SolidTacToe.Exe\SolidTacToe.Exe.csproj", "{64C0489E-EA55-4235-A9A8-A9790B4BA4F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{640F2AB5-C68E-43C3-9230-8BDF606879B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640F2AB5-C68E-43C3-9230-8BDF606879B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640F2AB5-C68E-43C3-9230-8BDF606879B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640F2AB5-C68E-43C3-9230-8BDF606879B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2908EA7C-6D4F-40C1-A4FB-896819C377B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2908EA7C-6D4F-40C1-A4FB-896819C377B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2908EA7C-6D4F-40C1-A4FB-896819C377B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2908EA7C-6D4F-40C1-A4FB-896819C377B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C0489E-EA55-4235-A9A8-A9790B4BA4F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C0489E-EA55-4235-A9A8-A9790B4BA4F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C0489E-EA55-4235-A9A8-A9790B4BA4F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C0489E-EA55-4235-A9A8-A9790B4BA4F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{640F2AB5-C68E-43C3-9230-8BDF606879B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SolidTacToe</RootNamespace>
+    <AssemblyName>SolidTacToe</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\SolidTacToe.Console\bin\Debug\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Definitions\IGameTiedCondition.cs" />
+    <Compile Include="Definitions\IGameWonCondition.cs" />
+    <Compile Include="Definitions\IPlayer.cs" />
+    <Compile Include="GameOverConditions\DiagonalWinCondition.cs" />
+    <Compile Include="GameOverConditions\HorizontalWinCondition.cs" />
+    <Compile Include="Definitions\IGameStatusCondition.cs" />
+    <Compile Include="GameOverConditions\NoMovesLeftCondition.cs" />
+    <Compile Include="GameOverConditions\VerticalWinCondition.cs" />
+    <Compile Include="Definitions\IGameRunner.cs" />
+    <Compile Include="Moves\Move.cs" />
+    <Compile Include="Moves\MoveValidator.cs" />
+    <Compile Include="Moves\NoMoveAvailableException.cs" />
+    <Compile Include="GameRunner.cs" />
+    <Compile Include="Grid.cs" />
+    <Compile Include="Definitions\IGrid.cs" />
+    <Compile Include="Definitions\IMove.cs" />
+    <Compile Include="Definitions\IMoveProvider.cs" />
+    <Compile Include="Definitions\IMoveTracker.cs" />
+    <Compile Include="Definitions\IMoveValidator.cs" />
+    <Compile Include="Moves\ValidMoveProvider.cs" />
+    <Compile Include="Moves\MoveTracker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Token.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
