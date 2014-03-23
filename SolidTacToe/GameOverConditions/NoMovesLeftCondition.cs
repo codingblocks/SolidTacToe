@@ -10,14 +10,17 @@ namespace SolidTacToe.GameOverConditions
 
         public bool ConditionMet()
         {
-            var max = Grid.Size*Grid.Size;
-            for (var i = 0; i < max; i++)
+            for (var x = 0; x < Grid.Size; x++)
             {
-                if (Grid.Get(i) == Token.Empty)
+                for (var y = 0; y < Grid.Size; y++)
                 {
-                    return false;
+                    if (Grid.Get(x,y) == Token.Empty)
+                    {
+                        return false;
+                    }
                 }
             }
+
             return true;
         }
     }

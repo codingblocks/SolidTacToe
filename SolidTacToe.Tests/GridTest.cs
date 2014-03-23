@@ -12,7 +12,10 @@ namespace SolidTacToe.Tests
         [TestInitialize]
         public void Initialize()
         {
-            var slots = new[] { Token.X, Token.Empty, Token.O, Token.Empty };
+            var slots = new[,]
+                {
+                    {Token.X, Token.Empty}, {Token.O, Token.Empty}
+                };
             Target = new Grid
             {
                 Slots = slots,
@@ -25,23 +28,9 @@ namespace SolidTacToe.Tests
         {
             [TestMethod]
             [ExpectedException(typeof(IndexOutOfRangeException))]
-            public void ExceptionThrownForInvalidIndex()
-            {
-                Target.Get(10);
-            }
-
-            [TestMethod]
-            [ExpectedException(typeof(IndexOutOfRangeException))]
             public void ExceptionThrownForInvalidCoords()
             {
                 Target.Get(0, -1);
-            }
-
-            [TestMethod]
-            public void ExpectedValueAtIndex()
-            {
-                var result = Target.Get(2);
-                Assert.AreEqual(Token.O, result);
             }
 
             [TestMethod]
@@ -57,28 +46,9 @@ namespace SolidTacToe.Tests
         {
             [TestMethod]
             [ExpectedException(typeof(IndexOutOfRangeException))]
-            public void ExceptionThrownForInvalidIndex()
-            {
-                Target.Set(Token.X, -1);
-            }
-
-            [TestMethod]
-            [ExpectedException(typeof(IndexOutOfRangeException))]
             public void ExceptionThrownForInvalidCoords()
             {
                 Target.Set(Token.X, 2, 2);
-            }
-
-            [TestMethod]
-            public void ExpectedValueForSetIndex()
-            {
-                const Token token = Token.X;
-                const int index = 0;
-
-                Target.Set(token, index);
-                var result = Target.Get(index);
-
-                Assert.AreEqual(token, result);
             }
 
             [TestMethod]

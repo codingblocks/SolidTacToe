@@ -21,7 +21,7 @@ namespace SolidTacToe.Tests.GameOverConditions
         {
             var grid = new Mock<IGrid>();
             grid.Setup(x => x.Size).Returns(2);
-            grid.SetupSequence(x => x.Get(It.IsAny<int>()))
+            grid.SetupSequence(x => x.Get(It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(Token.X)
                 .Returns(Token.Empty);
             Target.Grid = grid.Object;
@@ -35,7 +35,7 @@ namespace SolidTacToe.Tests.GameOverConditions
         {
             var grid = new Mock<IGrid>();
             grid.Setup(x => x.Size).Returns(2);
-            grid.SetupSequence(x => x.Get(It.IsAny<int>()))
+            grid.SetupSequence(x => x.Get(It.IsAny<int>(), It.IsAny<int>()))
                 .Returns(Token.X)
                 .Returns(Token.O)
                 .Returns(Token.X)

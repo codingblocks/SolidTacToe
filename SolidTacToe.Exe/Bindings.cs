@@ -35,11 +35,11 @@ namespace SolidTacToe.Exe
             Bind<IMoveValidator>().To<MoveValidator>();
             Bind<Token>().ToMethod(x => Get<IMoveTracker>().GetCurrentPlayer().Token);
 
-            var slots = new[]
+            var slots = new[,]
                 {
-                    Token.Empty, Token.Empty, Token.Empty,
-                    Token.Empty, Token.Empty, Token.Empty,
-                    Token.Empty, Token.Empty, Token.Empty,
+                    {Token.Empty, Token.Empty, Token.Empty},
+                    {Token.Empty, Token.Empty, Token.Empty},
+                    {Token.Empty, Token.Empty, Token.Empty},
                 };
 
             Bind<IGridRenderable,IGrid>()
@@ -50,13 +50,13 @@ namespace SolidTacToe.Exe
 
             var conditions = new List<IGameStatusCondition>
                 {
-                    new ConsoleNoMovesLeftCondition { Grid = Get<IGrid>() },
                     new ConsoleDiagonalWinCondition {Token = Token.X, Grid = Get<IGrid>()},
                     new ConsoleDiagonalWinCondition {Token = Token.O, Grid = Get<IGrid>()},
                     new ConsoleHorizontalWinCondition {Token = Token.X, Grid = Get<IGrid>()},
                     new ConsoleHorizontalWinCondition {Token = Token.O, Grid = Get<IGrid>()},
                     new ConsoleVerticalWinCondition {Token = Token.X, Grid = Get<IGrid>()},
                     new ConsoleVerticalWinCondition {Token = Token.O, Grid = Get<IGrid>()},
+                    new ConsoleNoMovesLeftCondition { Grid = Get<IGrid>() },
                 };
 
             Bind<IMoveProvider>().To<ValidMoveProvider>();

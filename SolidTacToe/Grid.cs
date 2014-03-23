@@ -8,29 +8,19 @@ namespace SolidTacToe
     /// </summary>
     public class Grid : IGrid
     {
-        public Token[] Slots { get;  set; }
+        public Token[,] Slots { get;  set; }
         public int Size { get; set; }
-
-        public Token Get(int i)
-        {
-            return Slots[i];
-        }
 
         public Token Get(int x, int y)
         {
             var i = CoordsToIndex(x, y);
-            return Get(i);
-        }
-
-        public void Set(Token t, int i)
-        {
-            Slots[i] = t;
+            return Slots[x, y];
         }
 
         public void Set(Token t, int x, int y)
         {
             var i = CoordsToIndex(x, y);
-            Set(t, i);
+            Slots[x, y] = t;
         }
 
         private int CoordsToIndex(int x, int y)
