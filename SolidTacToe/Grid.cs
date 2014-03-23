@@ -13,19 +13,12 @@ namespace SolidTacToe
 
         public Token Get(int x, int y)
         {
-            var i = CoordsToIndex(x, y);
             return Slots[x, y];
         }
 
         public void Set(Token t, int x, int y)
         {
-            var i = CoordsToIndex(x, y);
             Slots[x, y] = t;
-        }
-
-        private int CoordsToIndex(int x, int y)
-        {
-            return x + (y * Size);
         }
     }
 }
