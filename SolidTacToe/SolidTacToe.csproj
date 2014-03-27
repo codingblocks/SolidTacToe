@@ -68,8 +68,12 @@
     <Compile Include="Token.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Factories\readme.md" />
+    <None Include="Definitions\_readme.md" />
+    <None Include="Factories\_readme.md" />
+    <None Include="GameOverConditions\_readme.md" />
+    <None Include="Moves\_readme.md" />
     <None Include="packages.config" />
+    <None Include="_readme.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

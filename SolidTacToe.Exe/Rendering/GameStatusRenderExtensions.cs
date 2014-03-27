@@ -9,7 +9,7 @@ namespace SolidTacToe.Exe.Rendering
         {
             var gameWon = condition as IGameWonCondition;
             var message = gameWon != null
-                ? string.Format("Yay, player {0} won diagonally!", gameWon.Token)
+                ? string.Format("Yay, player {0} won diagonally!", gameWon.Winner)
                 : "Tie game, boo!";
             Console.WriteLine(message);
         }

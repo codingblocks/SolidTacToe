@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Reflection;
 using Ninject;
 using Ninject.Modules;
 using SolidTacToe.Definitions;
@@ -32,8 +31,8 @@ namespace SolidTacToe.Exe
             Bind<IMoveTracker>()
                 .To<MoveTracker>()
                 .InSingletonScope()
-                .WithPropertyValue("PlayerOne", new HumanPlayerStrategy { Token = Token.X })
-                .WithPropertyValue("PlayerTwo", new HumanPlayerStrategy { Token = Token.O });
+                .WithPropertyValue("PlayerOne", new HumanPlayer { Token = Token.X })
+                .WithPropertyValue("PlayerTwo", new HumanPlayer { Token = Token.O });
 
             Bind<IMove>().To<Move>();
             Bind<IMoveValidator>().To<MoveValidator>();

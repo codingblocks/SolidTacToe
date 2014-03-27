@@ -5,7 +5,7 @@ namespace SolidTacToe.GameOverConditions
 {
     public class VerticalWinCondition : IGameStatusCondition, IGameWonCondition
     {
-        public Token Token { get; set; }
+        public Token Winner { get; set; }
 
         [Inject]
         public IGrid Grid { get; set; }
@@ -17,7 +17,7 @@ namespace SolidTacToe.GameOverConditions
                 var met = true;
                 for (var row = 0; row < Grid.Size; row++)
                 {
-                    met = met && Grid.Get(column, row) == Token;
+                    met = met && Grid.Get(column, row) == Winner;
                 }
                 if (met)
                 {

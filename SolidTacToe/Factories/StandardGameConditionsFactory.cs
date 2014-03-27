@@ -14,12 +14,12 @@ namespace SolidTacToe.Factories
         {
             return new List<IGameStatusCondition>
                 {
-                    new DiagonalWinCondition { Token = Token.X, Grid = Grid },
-                    new DiagonalWinCondition { Token = Token.O, Grid = Grid },
-                    new HorizontalWinCondition { Token = Token.X, Grid = Grid },
-                    new HorizontalWinCondition { Token = Token.O, Grid = Grid },
-                    new VerticalWinCondition { Token = Token.X, Grid = Grid },
-                    new VerticalWinCondition { Token = Token.O, Grid = Grid },
+                    new DiagonalWinCondition { Winner = Token.X, Grid = Grid },
+                    new DiagonalWinCondition { Winner = Token.O, Grid = Grid },
+                    new HorizontalWinCondition { Winner = Token.X, Grid = Grid },
+                    new HorizontalWinCondition { Winner = Token.O, Grid = Grid },
+                    new VerticalWinCondition { Winner = Token.X, Grid = Grid },
+                    new VerticalWinCondition { Winner = Token.O, Grid = Grid },
                     new NoMovesLeftCondition { Grid = Grid },
                 };
         }

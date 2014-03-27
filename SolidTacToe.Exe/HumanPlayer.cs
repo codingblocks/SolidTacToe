@@ -3,7 +3,7 @@ using SolidTacToe.Definitions;
 
 namespace SolidTacToe.Exe
 {
-    internal class HumanPlayerStrategy : IPlayer
+    internal class HumanPlayer : IPlayer
     {
         public Token Token { get; set; }
         public IMove GetMove()

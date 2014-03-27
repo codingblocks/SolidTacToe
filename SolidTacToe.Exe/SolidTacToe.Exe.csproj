@@ -56,7 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Definitions\_readme.md" />
     <None Include="packages.config" />
+    <None Include="_readme.md" />
+    <None Include="Rendering\_readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SolidTacToe\SolidTacToe.csproj">

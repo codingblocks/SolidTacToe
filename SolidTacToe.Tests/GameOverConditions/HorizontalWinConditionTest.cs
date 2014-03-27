@@ -31,7 +31,7 @@ namespace SolidTacToe.Tests.GameOverConditions
             public void FalseForEmptyGrid()
             {
                 var grid = GetEmptyGridMock();
-                var target = new DiagonalWinCondition {Grid = grid.Object, Token = Token.O};
+                var target = new DiagonalWinCondition {Grid = grid.Object, Winner = Token.O};
                 var result = target.ConditionMet();
                 Assert.IsFalse(result);
             }
@@ -44,7 +44,7 @@ namespace SolidTacToe.Tests.GameOverConditions
                 grid.Setup(x => x.Get(0, 1)).Returns(Token.X);
                 grid.Setup(x => x.Get(0, 2)).Returns(Token.X);
 
-                var target = new HorizontalWinCondition { Grid = grid.Object, Token = Token.X };
+                var target = new HorizontalWinCondition { Grid = grid.Object, Winner = Token.X };
                 var result = target.ConditionMet();
 
                 Assert.IsFalse(result);
@@ -59,7 +59,7 @@ namespace SolidTacToe.Tests.GameOverConditions
                 grid.Setup(x => x.Get(1, 0)).Returns(Token.X);
                 grid.Setup(x => x.Get(2, 0)).Returns(Token.X);
 
-                var target = new HorizontalWinCondition { Grid = grid.Object, Token = Token.X};
+                var target = new HorizontalWinCondition { Grid = grid.Object, Winner = Token.X};
                 var result = target.ConditionMet();
 
                 Assert.IsTrue(result);
