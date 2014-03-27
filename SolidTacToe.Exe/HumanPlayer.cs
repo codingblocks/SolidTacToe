@@ -3,9 +3,17 @@ using SolidTacToe.Definitions;
 
 namespace SolidTacToe.Exe
 {
+    /// <summary>
+    /// Gets, parses, and passes moves from the user.
+    /// </summary>
     internal class HumanPlayer : IPlayer
     {
         public Token Token { get; set; }
+
+        /// <summary>
+        /// Prompts user until it gets a valid move, then returns it
+        /// </summary>
+        /// <returns></returns>
         public IMove GetMove()
         {
             var move = Bindings.Get<IMove>();

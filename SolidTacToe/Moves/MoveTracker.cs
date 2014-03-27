@@ -3,7 +3,7 @@
 namespace SolidTacToe.Moves
 {
     /// <summary>
-    /// Toggles between players
+    /// Acts as a queue that keeps track of, and advances the current player.
     /// </summary>
     public class MoveTracker : IMoveTracker
     {
@@ -13,7 +13,7 @@ namespace SolidTacToe.Moves
         private int _turn;
 
         /// <summary>
-        /// Returns PlayerStrategyOne, PlayerStrategyTwo, PlayerStrategyOne etc
+        /// Changes the current player, and returns it. PlayerOne, PlayerTwo, PlayerOne etc.
         /// </summary>
         /// <returns></returns>
         public IPlayer Next()
@@ -21,6 +21,10 @@ namespace SolidTacToe.Moves
             return GetPlayer(++_turn);
         }
 
+        /// <summary>
+        /// Player that is currently attempting to move
+        /// </summary>
+        /// <returns></returns>
         public IPlayer GetCurrentPlayer()
         {
             return GetPlayer(_turn);

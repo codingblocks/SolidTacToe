@@ -9,6 +9,9 @@ using SolidTacToe.Moves;
 
 namespace SolidTacToe.Exe
 {
+    /// <summary>
+    /// Contains our IOC bindings that composes the pieces of our application.
+    /// </summary>
     public class Bindings : NinjectModule
     {
         private static readonly IKernel Container;
@@ -19,15 +22,22 @@ namespace SolidTacToe.Exe
             Container.Load(Assembly.GetExecutingAssembly());
         }
 
+        /// <summary>
+        /// Get an implementation of the specified interface
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static T Get<T>()
         {
             return Container.Get<T>();
         }
 
-        private const int GridSize = 3;
-
+        /// <summary>
+        /// Defines interface -> concrete mappings. Where the magic happens.
+        /// </summary>
         public override void Load()
         {
+            const int gridSize = 3;
             Bind<IMoveTracker>()
                 .To<MoveTracker>()
                 .InSingletonScope()
@@ -40,9 +50,9 @@ namespace SolidTacToe.Exe
             Bind<IGridFactory>().To<EmptyGridFactory>();
 
             Bind<IGridRenderable,IGrid>()
-                .ToMethod(x => Get<IGridFactory>().Create<ConsoleGrid>(GridSize))
+                .ToMethod(x => Get<IGridFactory>().Create<ConsoleGrid>(gridSize))
                 .InSingletonScope()
-                .WithPropertyValue("Size", x => GridSize);
+                .WithPropertyValue("Size", x => gridSize);
 
             Bind<IGameConditionsFactory>()
                 .To<StandardGameConditionsFactory>();

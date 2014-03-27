@@ -6,6 +6,9 @@ using SolidTacToe.Moves;
 
 namespace SolidTacToe
 {
+    /// <summary>
+    /// Simple implementation of the game of TicTacToe
+    /// </summary>
     public class GameRunner : IGameRunner
     {
         [Inject]
@@ -14,6 +17,10 @@ namespace SolidTacToe
         [Inject]
         public IEnumerable<IGameStatusCondition> GameOverConditions { get; set; }
 
+        /// <summary>
+        /// Advances the game one turn
+        /// </summary>
+        /// <returns></returns>
         public IGameStatusCondition ExecuteTurn()
         {
             var status = GetStatus();

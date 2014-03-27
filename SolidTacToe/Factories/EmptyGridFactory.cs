@@ -10,7 +10,7 @@ namespace SolidTacToe.Factories
         /// <summary>
         /// Create a new Grid of size "size", and initialize to Token.Empty
         /// </summary>
-        public T Create<T>(int size) where T : IGrid, new()
+        public T Create<T>(int size) where T : IGrid, IGridMatrix, new()
         {
             var slots = new Token[size,size];
             for (var x = 0; x < size; x++)

@@ -2,7 +2,8 @@
 
 namespace SolidTacToe.Exe.Definitions
 {
-    internal interface IGridRenderable : IGrid, IRenderable
-    {
-    }
+    /// <summary>
+    /// Combination of IGrid and IRenderable
+    /// </summary>
+    internal interface IGridRenderable : IGrid, IRenderable { }
 }

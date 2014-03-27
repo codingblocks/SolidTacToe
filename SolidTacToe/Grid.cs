@@ -6,7 +6,7 @@ namespace SolidTacToe
     /// Keeps track of the current state of the game. This class
     /// should only change if the underlying data structure changes.
     /// </summary>
-    public class Grid : IGrid
+    public class Grid : IGrid, IGridMatrix
     {
         public Token[,] Slots { get;  set; }
         public int Size { get; set; }

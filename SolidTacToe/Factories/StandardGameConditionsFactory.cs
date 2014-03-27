@@ -5,11 +5,18 @@ using SolidTacToe.GameOverConditions;
 
 namespace SolidTacToe.Factories
 {
+    /// <summary>
+    /// Create the "normal" rules for a "normal" game of TicTacToe in the appropriate order
+    /// </summary>
     public class StandardGameConditionsFactory : IGameConditionsFactory
     {
         [Inject]
         public IGrid Grid { get; set; }
 
+        /// <summary>
+        /// Returns the "normal" rules for a "normal" game of TicTacToe in the appropriate order
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<IGameStatusCondition> Create()
         {
             return new List<IGameStatusCondition>

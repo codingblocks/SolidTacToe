@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Definitions\IGameTiedCondition.cs" />
     <Compile Include="Definitions\IGameWonCondition.cs" />
+    <Compile Include="Definitions\IGridMatrix.cs" />
     <Compile Include="Definitions\IPlayer.cs" />
     <Compile Include="Factories\EmptyGridFactory.cs" />
     <Compile Include="Factories\StandardGameConditionsFactory.cs" />
