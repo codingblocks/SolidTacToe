@@ -3,7 +3,9 @@ using System.Reflection;
 using Ninject;
 using Ninject.Modules;
 using SolidTacToe.Definitions;
+using SolidTacToe.Exe.Definitions;
 using SolidTacToe.Exe.Rendering;
+using SolidTacToe.Factories;
 using SolidTacToe.Moves;
 
 namespace SolidTacToe.Exe
@@ -23,6 +25,8 @@ namespace SolidTacToe.Exe
             return Container.Get<T>();
         }
 
+        private const int GridSize = 3;
+
         public override void Load()
         {
             Bind<IMoveTracker>()
@@ -34,37 +38,22 @@ namespace SolidTacToe.Exe
             Bind<IMove>().To<Move>();
             Bind<IMoveValidator>().To<MoveValidator>();
             Bind<Token>().ToMethod(x => Get<IMoveTracker>().GetCurrentPlayer().Token);
-
-            var slots = new[,]
-                {
-                    {Token.Empty, Token.Empty, Token.Empty},
-                    {Token.Empty, Token.Empty, Token.Empty},
-                    {Token.Empty, Token.Empty, Token.Empty},
-                };
+            Bind<IGridFactory>().To<EmptyGridFactory>();
 
             Bind<IGridRenderable,IGrid>()
-                .To<ConsoleGrid>()
+                .ToMethod(x => Get<IGridFactory>().Create<ConsoleGrid>(GridSize))
                 .InSingletonScope()
-                .WithPropertyValue("Slots", x => slots)
-                .WithPropertyValue("Size", x => 3);
+                .WithPropertyValue("Size", x => GridSize);
 
-            var conditions = new List<IGameStatusCondition>
-                {
-                    new ConsoleDiagonalWinCondition {Token = Token.X, Grid = Get<IGrid>()},
-                    new ConsoleDiagonalWinCondition {Token = Token.O, Grid = Get<IGrid>()},
-                    new ConsoleHorizontalWinCondition {Token = Token.X, Grid = Get<IGrid>()},
-                    new ConsoleHorizontalWinCondition {Token = Token.O, Grid = Get<IGrid>()},
-                    new ConsoleVerticalWinCondition {Token = Token.X, Grid = Get<IGrid>()},
-                    new ConsoleVerticalWinCondition {Token = Token.O, Grid = Get<IGrid>()},
-                    new ConsoleNoMovesLeftCondition { Grid = Get<IGrid>() },
-                };
+            Bind<IGameConditionsFactory>()
+                .To<StandardGameConditionsFactory>();
 
             Bind<IMoveProvider>().To<ValidMoveProvider>();
 
             Bind<IGameRunner>()
                 .To<GameRunner>()
                 .WithPropertyValue("MoveProvider", Get<IMoveProvider>())
-                .WithPropertyValue("GameOverConditions", conditions);
+                .WithPropertyValue("GameOverConditions", Get<IGameConditionsFactory>().Create());
         }
     }
 }

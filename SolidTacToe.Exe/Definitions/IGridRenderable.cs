@@ -1,6 +1,6 @@
 ﻿using SolidTacToe.Definitions;
 
-namespace SolidTacToe.Exe.Rendering
+namespace SolidTacToe.Exe.Definitions
 {
     internal interface IGridRenderable : IGrid, IRenderable
     {

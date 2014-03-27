@@ -1,4 +1,4 @@
-﻿namespace SolidTacToe.Exe.Rendering
+﻿namespace SolidTacToe.Exe.Definitions
 {
     internal interface IRenderable
     {

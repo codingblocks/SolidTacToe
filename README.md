@@ -1,6 +1,5 @@
 # SolidTacToe
 
-
 An C#/.NET attempt at a completely [SOLID][1] implementation of Tic Tac Toe, as mentioned on [episode #7][2] of the Coding Blocks Podcast.
 
 Available under the [MIT License][3]

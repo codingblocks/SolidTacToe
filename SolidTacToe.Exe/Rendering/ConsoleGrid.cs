@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using SolidTacToe.Exe.Definitions;
 
 namespace SolidTacToe.Exe.Rendering
 {

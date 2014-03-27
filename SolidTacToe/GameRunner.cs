@@ -11,6 +11,7 @@ namespace SolidTacToe
         [Inject]
         public IMoveProvider MoveProvider { get; set; }
 
+        [Inject]
         public IEnumerable<IGameStatusCondition> GameOverConditions { get; set; }
 
         public IGameStatusCondition ExecuteTurn()

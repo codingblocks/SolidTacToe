@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\SolidTacToe.Console\bin\Debug\Ninject.dll</HintPath>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,12 +42,16 @@
     <Compile Include="Definitions\IGameTiedCondition.cs" />
     <Compile Include="Definitions\IGameWonCondition.cs" />
     <Compile Include="Definitions\IPlayer.cs" />
+    <Compile Include="Factories\EmptyGridFactory.cs" />
+    <Compile Include="Factories\StandardGameConditionsFactory.cs" />
+    <Compile Include="Definitions\IGameConditionsFactory.cs" />
     <Compile Include="GameOverConditions\DiagonalWinCondition.cs" />
     <Compile Include="GameOverConditions\HorizontalWinCondition.cs" />
     <Compile Include="Definitions\IGameStatusCondition.cs" />
     <Compile Include="GameOverConditions\NoMovesLeftCondition.cs" />
     <Compile Include="GameOverConditions\VerticalWinCondition.cs" />
     <Compile Include="Definitions\IGameRunner.cs" />
+    <Compile Include="Definitions\IGridFactory.cs" />
     <Compile Include="Moves\Move.cs" />
     <Compile Include="Moves\MoveValidator.cs" />
     <Compile Include="Moves\NoMoveAvailableException.cs" />
@@ -63,6 +68,7 @@
     <Compile Include="Token.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Factories\readme.md" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

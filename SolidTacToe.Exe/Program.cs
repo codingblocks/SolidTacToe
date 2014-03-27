@@ -1,5 +1,6 @@
 ﻿using System;
 using SolidTacToe.Definitions;
+using SolidTacToe.Exe.Definitions;
 using SolidTacToe.Exe.Rendering;
 
 namespace SolidTacToe.Exe
@@ -18,12 +19,10 @@ namespace SolidTacToe.Exe
                 Console.WriteLine("Welcome to SolidTacToe!");
 
                 grid.Render();
-
                 condition = Bindings.Get<IGameRunner>().ExecuteTurn();
             }
 
-            var gameOver = (IRenderable)condition;
-            gameOver.Render();
+            condition.Render();
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
         }
