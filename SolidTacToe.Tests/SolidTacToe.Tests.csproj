@@ -54,6 +54,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Factories\EmptyGridFactoryTest.cs" />
+    <Compile Include="Factories\StandardGameConditionsFactoryTest.cs" />
     <Compile Include="GameOverConditions\DiagonalWinConditionTest.cs" />
     <Compile Include="GameOverConditions\NoMovesLeftConditionTest.cs" />
     <Compile Include="GameOverConditions\VerticalWinConditionTest.cs" />
