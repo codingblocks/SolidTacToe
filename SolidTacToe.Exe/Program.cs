@@ -19,19 +19,21 @@ namespace SolidTacToe.Exe
             IGameStatusCondition condition = null;
             var grid = Bindings.Get<IGridRenderable>();
 
-            while(condition == null)
+            while(true)
             {
                 Console.Clear();
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Welcome to SolidTacToe!");
 
                 grid.Render();
+
+                if (condition != null) { break; }
                 condition = Bindings.Get<IGameRunner>().ExecuteTurn();
             }
 
             condition.Render();
             Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
+            Console.ReadKey();          
         }
     }
 }

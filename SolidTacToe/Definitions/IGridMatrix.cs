@@ -8,6 +8,6 @@
         /// <summary>
         /// The underlying data structure upon which this particular kind of grid depends on
         /// </summary>
-        Token[,] Slots { set; }
+        Token[,] Slots { get; set; }
     }
 }

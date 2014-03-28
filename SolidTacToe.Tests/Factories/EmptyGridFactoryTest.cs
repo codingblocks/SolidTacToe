@@ -17,20 +17,36 @@ namespace SolidTacToe.Tests.Factories
         {
             var target = new EmptyGridFactory();
             var result = target.Create<GridFake>(2);
-            Assert.AreEqual(Token.Empty, result.Get(0, 0));
-            Assert.AreEqual(Token.Empty, result.Get(0, 1));
-            Assert.AreEqual(Token.Empty, result.Get(1, 0));
-            Assert.AreEqual(Token.Empty, result.Get(1, 1));
+            Assert.AreEqual(Token.Empty, result.Slots[0, 0]);
+            Assert.AreEqual(Token.Empty, result.Slots[0, 1]);
+            Assert.AreEqual(Token.Empty, result.Slots[1, 0]);
+            Assert.AreEqual(Token.Empty, result.Slots[1, 1]);
+        }
+
+        [TestMethod]
+        public void CorrectSizeReturned()
+        {
+            var target = new EmptyGridFactory();
+            var result = target.Create<GridFake>(2);
+            Assert.AreEqual(2, result.Size);
+        }
+
+        [TestMethod]
+        public void CorrectSlotsReturned()
+        {
+            var target = new EmptyGridFactory();
+            var result = target.Create<GridFake>(2);
+            Assert.AreEqual(4, result.Slots.Length);
         }
     }
 
     internal class GridFake : IGrid, IGridMatrix
     {
-        public Token[,] Slots { set; private get; }
+        public Token[,] Slots { set; get; }
         public int Size { get; set; }
         public Token Get(int x, int y)
         {
-            return Slots[x, y];
+            throw new NotImplementedException("Shoudln't need this");
         }
 
         public void Set(Token t, int x, int y)
